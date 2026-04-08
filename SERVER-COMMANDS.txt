@@ -1,0 +1,31 @@
+# Commands to run ON THE SERVER (38.97.62.139) — paste at root@TYNE:~#
+
+# 1) Go to project folder (if you uploaded to /root/career-assessment)
+cd /root/career-assessment
+
+# 2) If you uploaded a zip instead, unzip first:
+# unzip -o career-assessment-deploy.zip -d career-assessment && cd career-assessment
+
+# 3) Install Node 20 + PM2 if not already installed
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo npm install -g pm2
+
+# 4) Env and firewall
+test -f .env.local || cp .env.server.example .env.local
+sudo ufw allow 3000/tcp
+sudo ufw status
+
+# 5) Install deps, build, start with PM2
+npm install
+npm run build
+mkdir -p logs
+pm2 delete career-assessment 2>/dev/null; true
+pm2 start ecosystem.config.cjs
+pm2 save
+
+# 6) Check
+pm2 status
+ss -tlnp | grep 3000
+
+# Then open in browser: http://38.97.62.139:3000
