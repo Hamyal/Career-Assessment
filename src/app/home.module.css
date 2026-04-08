@@ -1,0 +1,184 @@
+/* Home / Landing page — PowerPrint™ by biaPathways
+   Same blue-grey palette as admin for consistency */
+
+.page {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-dm-sans, 'DM Sans', system-ui, sans-serif);
+  background: linear-gradient(165deg, #e8eaf0 0%, #e2e5ee 40%, #dfe2eb 100%);
+  color: #0f172a;
+  overflow: auto;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Logo image as very light watermark - content stays fully visible */
+.main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('/logo/bia-bg.png');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* Same logo as img layer - very transparent so card & text are clear */
+.bgImage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(65%, 520px);
+  height: auto;
+  max-height: 70%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.07;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.main > .decor {
+  position: absolute;
+  z-index: 0;
+}
+
+/* Wrapper so the card is always centered in the main area */
+.centerWrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  padding: 3rem 2.5rem;
+  background: rgba(240, 242, 248, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(180, 185, 205, 0.4);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #5436da;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.titleAccent {
+  color: #5436da;
+}
+
+.subtitle {
+  margin: 0 0 1.75rem;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: #4a5168;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(84, 54, 218, 0.88) 0%, rgba(67, 48, 184, 0.88) 100%);
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 12px rgba(84, 54, 218, 0.22);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(84, 54, 218, 0.4);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+/* Soft blobs — blue-grey to match admin palette */
+.decor {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.decorTop {
+  top: -120px;
+  right: -100px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(180, 185, 205, 0.2) 0%, rgba(200, 205, 220, 0.08) 40%, transparent 70%);
+}
+
+.decorBottom {
+  bottom: -100px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(180, 185, 205, 0.15) 0%, transparent 65%);
+}
+
+.decorCenter {
+  top: 50%;
+  left: 50%;
+  width: 480px;
+  height: 480px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(160, 168, 195, 0.06) 0%, transparent 55%);
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}

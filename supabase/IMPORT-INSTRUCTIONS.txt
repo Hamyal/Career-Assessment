@@ -1,0 +1,18 @@
+How to import sample-sessions-import.csv into Supabase
+======================================================
+
+1. Create one user first (so sessions can reference it):
+   - Supabase → Table Editor → users → Insert row
+   - email: test@example.com (or any email)
+   - Save and copy the row's "id" (UUID)
+
+2. Replace YOUR_USER_ID in the CSV:
+   - Open sample-sessions-import.csv in a text editor
+   - Find and replace: YOUR_USER_ID → paste the UUID you copied
+
+3. Import into sessions:
+   - Table Editor → sessions → Import data from CSV (or Insert → paste rows)
+   - If your Supabase has "Import CSV", upload the file and map columns
+   - Or use Insert row and paste one row at a time (user_id, email, trait_vector, final_score, pdf_url)
+
+4. Reload the Admin page in your app to see the sessions.
