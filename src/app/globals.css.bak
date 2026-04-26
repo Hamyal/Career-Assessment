@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/theo-bot/fonts/general-sans/GeneralSans-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/theo-bot/fonts/general-sans/GeneralSans-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/theo-bot/fonts/general-sans/GeneralSans-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/theo-bot/fonts/general-sans/GeneralSans-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/theo-bot/fonts/general-sans/GeneralSans-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'General Sans', system-ui, -apple-system, sans-serif;
+  --font-assessment: 'General Sans';
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Main content fills remaining space below header so no extra scrollbar */
+body > header {
+  flex-shrink: 0;
+}
+
+a.header-admin-link:hover {
+  color: #fff;
+  background: #fb6322;
+  border-color: #fb6322;
+}

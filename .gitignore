@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+dist/
+
+# Environment and secrets — never commit
+.env
+.env.local
+.env.*.local
+.env.server.local
+
+# Logs and debug
+npm-debug.log*
+*.log
+app-out.log
+app-err.log
+
+# OS and IDE
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Optional
+*.tsbuildinfo
